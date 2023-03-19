@@ -1,0 +1,45 @@
+.container-manual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#t-color{
+    color: white;
+};
+#nav-space{
+    margin-left: 100px;
+
+}
+.column {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.left-column {
+    flex: 0 0 60%;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.right-column {
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    background-color: #e6e6e6;
+    padding: 20px;
+}
+
+.top-row {
+    flex: 1;
+    background-color: #cccccc;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.bottom-row {
+    flex: 1;
+    background-color: #b3b3b3;
+    padding: 20px;
+}

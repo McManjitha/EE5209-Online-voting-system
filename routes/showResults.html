@@ -1,0 +1,96 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <h1 id="question">Question</h1>
+    <h2 id="op-1"></h2>
+    <h4 id="r-1"></h4>
+    <h2 id="op-2"></h2>
+    <h4 id="r-2"></h4>
+    <h2 id="op-3"></h2>
+    <h4 id="r-3"></h4>
+    <h2 id="op-4"></h2>
+    <h4 id="r-4"></h4>
+
+    
+
+</body>
+</html>-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Poll Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <!--nav start  --------------------->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+            <img src="/images/We_Vote_logo2-1.png" alt="Bootstrap" width="140">
+            </a>
+        </div>
+        <div class="container-fluid">
+         
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li id="nav-space" class="nav-item">
+                <a style="color: white;" class="nav-link active" id="t-color" aria-current="page" href="http://localhost:3000/home" >Home</a>
+              </li>
+              <li id="nav-space" class="nav-item">
+                <a style="color: white;" class="nav-link" href="#" id="t-color">About</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+        <!--nav end  --------------------->
+    <div class="container">
+      <h1>Poll Results</h1>
+      <h2 id="question">Question: What is your favorite color?</h2>
+      <div class="mb-3">
+        <label id="op-1" class="form-label">Red</label>
+        <div class="progress">
+          <div id="r-1" class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label id="op-2" class="form-label">Blue</label>
+        <div class="progress">
+          <div id="r-2" class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label id="op-3" class="form-label">Green</label>
+        <div class="progress">
+          <div id="r-3" class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label id="op-4" class="form-label">Other</label>
+        <div class="progress">
+          <div id="r-4" class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10</div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function gotoHome(){
+      window.location.href = 'http://localhost:3000/home';
+    }
+  </script>
+
+</html>

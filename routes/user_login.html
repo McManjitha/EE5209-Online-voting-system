@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Two Column Layout</title>
+    <link rel="stylesheet" type="text/css" href="/user_login.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <style>
+        #bar{
+            background-color: black;
+        }
+    </style>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+            <img src="/images/We_Vote_logo2-1.png" alt="Bootstrap" width="140">
+            </a>
+        </div>
+        <div class="container-fluid">
+         
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li id="nav-space" class="nav-item">
+                <a style="color: white;" class="nav-link active" id="t-color" aria-current="page" href="#">Home</a>
+              </li>
+              <li id="nav-space" class="nav-item">
+                <a style="color: white;" class="nav-link" href="#" id="t-color">About</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    <div class="column">
+		<div class="left-column">
+			<img id="log-image" src="/images/We_Vote_logo2-1.png">
+            <p>
+                Welcome to "we Vote" - the online voting system that empowers you to make your voice heard and participate in the decision-making process of your community!
+
+With "we Vote", you can easily create and join online polls and surveys, vote for your favorite candidates, proposals, or ideas, and engage in lively discussions with fellow voters. 
+Whether you're a student, a citizen, or a business owner, your opinion matters, and "we Vote" provides you with a convenient and secure platform to express it.
+            </p>
+		</div>
+		<div class="right-column">
+
+            
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card" id="card-prop">
+                            <div class="card-header">
+                                <h4>User Login Form</h4>
+                            </div>
+                            <div class="card-body">
+                                <form id="login-form">
+                                    <div class="form-group">
+                                        <label >Username</label>
+                                        
+                                        <input type="text" id="pollid" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="text" id="password" class="form-control">
+                                    </div>
+                                    <div id="error-message" class="alert alert-danger" style="display: none;"></div>
+                                    <button onclick="checkId()" class="btn btn-primary">Login</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+		</div>
+	</div>
+
+    
+    </div>
+    <script>
+        function checkId(){
+            let userId = document.getElementById("pollid").value;
+            const loginSuccessMessage = document.getElementById('login-success-message');
+            const url = `http://localhost:3000/userlogin?userId=${userId}`;
+    
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+            })
+                .then(response => response.text())
+                .then(data => {
+                    if (data === 'good') {
+    
+                        window.location.href = 'home';
+                    }
+    })
+                .catch(error => console.error(error));
+            }
+    </script>
+  </body>
+</html>

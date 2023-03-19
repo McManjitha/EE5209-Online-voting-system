@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Poll Login Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!--nav start  --------------------->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+            <img src="/images/We_Vote_logo2-1.png" alt="Bootstrap" width="140">
+            </a>
+        </div>
+        <div class="container-fluid">
+         
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li id="nav-space" class="nav-item">
+                <a style="color: white;" class="nav-link active" id="t-color" aria-current="page" href="/">Home</a>
+              </li>
+              <li id="nav-space" class="nav-item">
+                <a style="color: white;" class="nav-link" href="#" id="t-color">About</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+        <!--nav end  --------------------->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Poll Login Form</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="login-form">
+                            <div class="form-group">
+                                <label for="username">Poll ID</label>
+                                <!--<input type="text" id="usernam" name="username" class="form-control" required>-->
+                                <input type="text" id="pollid" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="text" id="password" class="form-control">
+                            </div>
+                            <div id="error-message" class="alert alert-danger" style="display: none;"></div>
+                            <button onclick="checkId()" class="btn btn-primary">Login</button>
+                            <div id="login-success-message"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkId(){
+            let userId = document.getElementById("pollid").value;
+            const loginSuccessMessage = document.getElementById('login-success-message');
+            const url = `http://localhost:3000/hello/login?userId=${userId}`;
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+            })
+                .then(response => response.text())
+                .then(data => {
+                    if (data === 'good') {
+                        loginSuccessMessage.textContent = data;
+                        console.log("ghomw");
+                        window.location.href = 'home/'+userId;
+                    }
+    })
+                .catch(error => console.error(error));
+            }
+    </script>
+
+ 
+</body>
+</html>
